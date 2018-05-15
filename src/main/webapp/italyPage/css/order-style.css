@@ -1,0 +1,53 @@
+.order_list{border-radius: 12px;border: 2px solid #fe5313; background-color:#FFF;}
+.order_list legend{padding:6px 3px 4px 25px; background-image:url(../img/leg_img.png); font-size:16px; background-repeat:no-repeat; background-size:18%; font-weight:900; color:#1e1e1e; background-color:#f5f5f5; border-radius:0 30px 30px 0; border:2px solid #e5e5e5}
+.order_list tr{ height:170px; display:block; border-bottom:2px solid #eeeeee; width:1130px; margin:20px auto 0 auto; color:#333333;}
+.order_list tr:last-child{ height:50px; width:460px;float:right; margin-right:30px; border:none;}
+/*.order_list .order_end{ height:50px; width:436px; background-color:#999; float:right;}*/
+.order_list tr:last-child input{
+	font-size:12px;
+	background: #f7f7f7;
+	border: 1px solid #dcdcdc;
+	padding:4px 4px 4px 32px;
+	margin:0 6px;
+	border-radius:5px;
+	color:#8d8d8d;
+	cursor:pointer;
+	background-repeat:no-repeat;
+	background-image:url(../img/buy.png);
+	background-size:24px;
+	background-position:3px -1px
+}
+table{
+	width: 1200px;
+	margin: 0 auto;
+}
+
+table td:nth-child(1){
+	width: 600px;
+}
+table td:nth-child(2),table td:nth-child(3),table td:nth-child(4){
+	width: 200px;
+	text-align: center;
+}
+.table_top tr{
+	height: 60px;
+}
+.table_top tr td{
+	font-weight:bold; color:#313131;
+}
+fieldset{
+	width: 1200px;
+	margin: 0px auto 20px;
+}
+.commodity{
+	width: 320px;
+}
+.commodity_title{
+	margin: 10px 0;
+}
+.commodity_info{
+	overflow: hidden;
+}
+.order_status,.order_price_total{
+	margin-right: 20px;
+}

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.baizhi.clf.dao.ProductDAO">
+
+    <sql id="selectSql">
+        select id,name,description,price,imgSrc,category_id as categoryId,content,productNum
+        from s_product
+    </sql>
+    <select id="selectProducts" resultType="sproductEntity">
+        <include refid="selectSql"></include>
+
+        <trim prefix="where" suffixOverrides="and">
+            <if test="sproductEntity.categoryId != null">
+                category_id = #{sproductEntity.categoryId} and
+            </if>
+            <if test="condition != null">
+                ${condition} and
+            </if>
+        </trim>
+        <if test="page != null">
+            limit #{page.startIndex},#{page.pageRows}
+        </if>
+    </select>
+    <select id="selectProductById" resultType="sproductEntity">
+        <include refid="selectSql"></include>
+        where id=#{id}
+    </select>
+
+    <select id="selectCounts" resultType="Integer">
+        select count(*)
+        from s_product
+        <trim prefix="where" suffixOverrides="and">
+
+            <if test="categoryId != null">
+                category_id = #{categoryId} and
+            </if>
+
+            flag = 'Y'
+        </trim>
+    </select>
+
+    <select id="selectProductByDsql" resultType="sproductEntity">
+        select s.id,s.name,s.description,s.price,s.imgSrc,s.category_id as categoryId,s.content,s.productNum
+        from s_product
+        s left join s_admin_product sa
+        on s.id = sa.product_id
+        ${condition}
+        <if test="page != null">
+            limit #{page.startIndex},#{page.pageRows}
+        </if>
+    </select>
+    
+    <select id="selectCountsByDsql" resultType="Integer">
+        select count(*)
+        from  s_product
+        s left join s_admin_product sa
+        on s.id = sa.product_id
+        ${condition}
+    </select>
+
+</mapper>

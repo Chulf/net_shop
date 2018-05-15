@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.baizhi.clf.dao.OrderDAO">
+
+    <insert id="insertOrder">
+        insert into s_order
+        (id,order_num,order_status,order_salary,user_id,time,admin_Id,shop_Id)
+        values(#{id},#{orderNum},#{orderStatus},#{orderSalary},#{userId},#{time},#{adminId},#{shopId})
+    </insert>
+    
+    <insert id="insertOrderItem">
+        insert into s_order_item
+        (id,order_id,product_id,price,count,name,description,imgSrc,productNum)
+        values(#{id},#{orderId},#{productId},#{price},#{count},#{name},#{description},#{imgsrc},#{productNum})
+    </insert>
+    
+    <select id="selectOrders" resultType="sorderEntity">
+        select id,order_num as orderNum,order_status as orderStatus,order_salary as orderSalary,user_id as userId,admin_id as adminId,shop_id as shopId
+        from s_order
+        <trim prefix="where" suffixOverrides="and">
+            <if test="shopId != null">
+                shop_Id = #{shopId} and
+            </if>
+            <if test="userId != null">
+                user_Id = #{userId} and
+            </if>
+            admin_id = #{adminId}
+        </trim>
+    </select>
+    <select id="selectOrderItem" resultType="sorderItemEntity">
+        select id,order_id as orderId,product_id as productId,price,count,name,description,imgSrc,productNum
+        from s_order_item
+        where order_id = #{orderNum}
+    </select>
+
+</mapper>
