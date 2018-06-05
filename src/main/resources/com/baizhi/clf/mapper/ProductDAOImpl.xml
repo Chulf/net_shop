@@ -3,7 +3,7 @@
 <mapper namespace="com.baizhi.clf.dao.ProductDAO">
 
     <sql id="selectSql">
-        select id,name,description,price,imgSrc,category_id as categoryId,content,productNum
+        select id,name,description,price,imgSrc,category_id as categoryId,content,productNum,chianUnit,italyUnit
         from s_product
     </sql>
     <select id="selectProducts" resultType="sproductEntity">
@@ -40,7 +40,7 @@
     </select>
 
     <select id="selectProductByDsql" resultType="sproductEntity">
-        select s.id,s.name,s.description,s.price,s.imgSrc,s.category_id as categoryId,s.content,s.productNum
+        select s.id,s.name,s.description,s.price,s.imgSrc,s.category_id as categoryId,s.content,s.productNum,s.chinaUnit,s.italyUnit
         from s_product
         s left join s_admin_product sa
         on s.id = sa.product_id

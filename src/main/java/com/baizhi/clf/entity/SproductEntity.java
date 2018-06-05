@@ -23,6 +23,10 @@ public class SproductEntity implements java.io.Serializable {
 	/**仓库商品标志*/
 	private String flag;
 
+	private String chinaUnit = "";
+
+	private String italyUnit = "";
+
 	private String categoryName;
 
 	private String productNum;
@@ -173,5 +177,21 @@ public class SproductEntity implements java.io.Serializable {
 
 	public void setProductNum(String productNum) {
 		this.productNum = productNum;
+	}
+
+	public String getChinaUnit() {
+		return chinaUnit;
+	}
+
+	public void setChinaUnit(String chinaUnit) {
+		this.chinaUnit = chinaUnit;
+	}
+
+	public String getItalyUnit() {
+		return italyUnit;
+	}
+
+	public void setItalyUnit(String italyUnit) {
+		this.italyUnit = italyUnit;
 	}
 }

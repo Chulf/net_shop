@@ -89,7 +89,7 @@
                 $.each(data, function (index, o) {
                     content2 += "<div class='content fl' style='box-shadow:2px 6px 8px rgba(100,100,100,0.2), 3px 10px 20px rgba(200,200,200,0.2);' onclick='jumpToDetail(\"" + o.id + "\");'>"
                             + "<img src='http://${pageContext.request.serverName}/net_shop_manager/" + o.imgsrc + "' width='150' height='150'/>"
-                            + "<p style='color:#ff7300;font-size:16px;text-align:left;font-weight:bold'>€&nbsp;&nbsp;" + o.price + "</p>"
+                            + "<p style='color:#ff7300;font-size:16px;text-align:left;font-weight:bold'>€&nbsp;&nbsp;" + o.price + "/"+o.italyUnit+"</p>"
                             + "<p style='color:#666;font-size:14px;max-width: 110px;overflow: hidden;text-overflow: ellipsis;white-space: nowrap;'>" + o.name + "</p>"
                             + "</div>"
                 })
