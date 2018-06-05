@@ -35,6 +35,17 @@
 			text-align:center;
 			border:1px solid #e8401f;
 		}
+		#language{
+			font-size: 14px;
+		    background: #f7f7f7;
+			border: 1px solid #dcdcdc;
+			padding: 8px 12px 8px 12px;
+			margin: 0 6px;
+			border-radius: 5px;
+			color: #8d8d8d;
+			cursor: pointer;
+			background-repeat: no-repeat;
+		}
 	</style>
 </head>
 <body>
@@ -44,7 +55,13 @@
 			<img src="images/sp3_3.png" alt="">
 		</div>
 		<div class="title">${sessionScope.shopMsg.name1}</div>
-		<div class="right"></div>
+		<div class="right" style="margin-right: 30px;"><input id="language" type="button" value="italy" onclick="toItalyPage();"></div>
+		<script>
+			// 去意大利界面
+			function toItalyPage(){
+				location.href = getHostName()+"/webApp-shop2/home.jsp";
+			}
+		</script>
 	</header>
     <div class="categary">
     	<div class="searchTop">

@@ -172,7 +172,7 @@ loadRemoteData = function(adminId,adminName) {
                                         <div class="product-name">${el.name}
                                         </div>
                                         <div class="product-price">
-                                            €${el.price}/${elz.chinaUnit}
+                                            €${el.price}/${el.chinaUnit}
                                         </div>
                                     </div>
                                     <div class="right-num">
