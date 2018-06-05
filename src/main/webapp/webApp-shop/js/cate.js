@@ -346,7 +346,7 @@ loadRemoteData = function(adminId,adminName) {
                         var str = `<li data-goodsId=${el.id}>
                                         <div class="left-img">
                                             <a href="#">
-                                                <img src=${getHostName()}/${el.imgsrc} alt="">
+                                                <img src=${getHostName2()}/net_shop_manager/${el.imgsrc} alt="">
                                             </a>
                                         </div>
                                         <div class="middle-info">
