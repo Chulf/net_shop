@@ -71,17 +71,17 @@ public class D_LanguageFilter implements Filter {
             if (userAgent.indexOf("Android") != -1 || userAgent.indexOf("iPhone") != -1 || userAgent.indexOf("iPad") != -1) {
                 //手机
                 if(admin.getUsername().equals("SuperAdmin")){
-                    response2.sendRedirect("/webApp-shop/login.jsp");
+                    response2.sendRedirect("/webApp-shop2/login.jsp");
                 }else{
-                    response2.sendRedirect("/webApp-shop/home.jsp?adminId="+admin.getId());
+                    response2.sendRedirect("/webApp-shop2/home.jsp?adminId="+admin.getId());
                 }
                 return;
             } else {
                 //电脑
                 if(admin.getUsername().equals("SuperAdmin")){
-                    response2.sendRedirect("/chinaPage/page/login.jsp");
+                    response2.sendRedirect("/italyPage/page/login.jsp");
                 }else{
-                    response2.sendRedirect("/chinaPage/page/booklist.jsp?adminId="+admin.getId());
+                    response2.sendRedirect("/italyPage/page/booklist.jsp?adminId="+admin.getId());
                 }
                 return;
             }
