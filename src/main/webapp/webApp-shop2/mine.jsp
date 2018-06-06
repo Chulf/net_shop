@@ -77,7 +77,7 @@
 			<a href="home.jsp">
 				<li>
 					<i class="iconfont icon-category"></i>
-					<span>scegliere</span>
+					<span>Scegliere</span>
 				</li>
 			</a>
 			<a href="shoppingCar.jsp">
