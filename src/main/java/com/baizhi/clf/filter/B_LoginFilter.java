@@ -2,6 +2,7 @@ package com.baizhi.clf.filter;
 
 import com.baizhi.clf.dao.UserDAO;
 import com.baizhi.clf.entity.SuserEntity;
+import com.baizhi.clf.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
@@ -19,8 +20,8 @@ import java.io.IOException;
 /**
  * Created by Administrator on 2018/3/1.
  */
-@WebFilter(urlPatterns = "/*",filterName = "f0")
-public class A_LoginFilter implements Filter {
+@WebFilter(urlPatterns = "/*",filterName = "f2")
+public class B_LoginFilter implements Filter {
     private ServletContext servletContext;
 
     @Override
@@ -32,6 +33,9 @@ public class A_LoginFilter implements Filter {
     @Autowired
     private UserDAO userDAO;
 
+    @Autowired
+    private UserService userService;
+
     @Override
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
 
@@ -40,6 +44,7 @@ public class A_LoginFilter implements Filter {
         HttpSession session = request2.getSession();
 
         Object user = session.getAttribute("user");
+        Object admin = session.getAttribute("adminMsg");
 
         if (user == null) {
 
@@ -55,12 +60,15 @@ public class A_LoginFilter implements Filter {
                         WebApplicationContext context = WebApplicationContextUtils.getWebApplicationContext(servletContext);
 
                         userDAO = context.getBean(UserDAO.class);
+                        userService = context.getBean(UserService.class);
 
                         //这里先不进行验证 后续再进行验证相关操作
                         SuserEntity suserEntity = userDAO.selectUserByUsername(value);
-                        if (suserEntity != null) {
+                        if (suserEntity != null && admin != null) {
                             //存储用户到session 代表登录
-                            session.setAttribute("user", suserEntity);
+                            //session.setAttribute("user", suserEntity);
+                            userService.login(suserEntity.getUsername(),suserEntity.getPassword());
+
                         }
                     }
                 }

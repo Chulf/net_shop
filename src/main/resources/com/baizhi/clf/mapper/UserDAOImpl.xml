@@ -3,7 +3,7 @@
 <mapper namespace="com.baizhi.clf.dao.UserDAO">
 
     <select id="selectUserByUsername" resultType="suserEntity">
-        select id,username,password,phone,email
+        select id,username,password,phone,email,shop_id as shopId
         from  s_user
         where username = #{username}
     </select>

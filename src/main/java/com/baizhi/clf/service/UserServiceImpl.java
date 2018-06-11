@@ -1,8 +1,10 @@
 package com.baizhi.clf.service;
 
 import com.baizhi.clf.dao.AdminDAO;
+import com.baizhi.clf.dao.SUrlDAO;
 import com.baizhi.clf.dao.UserDAO;
 import com.baizhi.clf.entity.Admin;
+import com.baizhi.clf.entity.SurlEntity;
 import com.baizhi.clf.entity.SuserEntity;
 import com.baizhi.clf.util.PasswordUtil;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,6 +31,9 @@ public class UserServiceImpl implements UserService {
     @Autowired
     private AdminDAO adminDAO;
 
+    @Autowired
+    private SUrlDAO sUrlDAO;
+
     @Override
     public String login(String username, String password) {
 
@@ -38,13 +43,12 @@ public class UserServiceImpl implements UserService {
 
         Admin admin = (Admin) session.getAttribute("adminMsg");
 
-        if (admin.getUsername().equals("SuperAdmin")) {
+        if (admin != null && admin.getUsername().equals("SuperAdmin")) {
             //如果访问的是仓库 超级管理员的店铺 必须以管理员身份登录
             Admin user = adminDAO.selectAdminByUsername(username);
-
+            System.out.println("shop is SupserAdmin!");
             if (user != null) {
                 if (user.getPassword().equals(PasswordUtil.encrypt(user.getUsername(),password,PasswordUtil.getStaticSalt()))){
-
                     session.setAttribute("user", user);
                     return "success";
                 }
@@ -52,11 +56,13 @@ public class UserServiceImpl implements UserService {
 
             return "error";
         }
-
         //通过用户名获取用户对象
         SuserEntity suserEntity1 = userDAO.selectUserByUsername(username);
 
-        if (suserEntity1 != null) {
+        SurlEntity surlEntity = sUrlDAO.selectSurlByAdminId(admin.getId());
+
+        //如果当前用户不为null 并且属于当前店铺的用户 则判断密码
+        if (suserEntity1 != null && suserEntity1.getShopId().equals(surlEntity.getId())) {
             if (suserEntity1.getPassword().equals(password)) {
                 session.setAttribute("user", suserEntity1);
                 return "success";

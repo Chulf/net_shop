@@ -6,6 +6,7 @@
     <title></title>
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/chinaPage/css/common.css"/>
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/chinaPage/css/booklist-style.css"/>
+    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/chinaPage/css/login-dialog.css"/>
     <script type="text/javascript" src="${pageContext.request.contextPath}/chinaPage/js/jquery.min.js"></script>
 </head>
 <body>
@@ -64,7 +65,14 @@
 <script type="text/javascript">
 
     function jumpToDetail(id) {
-        location.href = "${pageContext.request.contextPath}/chinaPage/page/details.jsp?id=" + id + "&adminId=${sessionScope.adminMsg.id}"
+        if (${sessionScope.user != null}) {
+            location.href = "${pageContext.request.contextPath}/chinaPage/page/details.jsp?id=" + id + "&adminId=${sessionScope.adminMsg.id}"
+        } else {
+//            alert("请先完成登录！")
+            $(".container").show();
+            $("#login").hide();
+            $("#Account").show();
+        }
     }
 
     //查询条件
@@ -91,7 +99,6 @@
                 $.each(data, function (index, o) {
                     content2 += "<div class='content fl' style='box-shadow:2px 6px 8px rgba(100,100,100,0.2), 3px 10px 20px rgba(200,200,200,0.2);' onclick='jumpToDetail(\"" + o.id + "\");'>"
                             + "<img src='http://${pageContext.request.serverName}/net_shop_manager/" + o.imgsrc + "' width='150' height='150'/>"
-                            + "<p style='color:#ff7300;font-size:16px;text-align:left;font-weight:bold'>€&nbsp;&nbsp;" + o.price + "/"+o.chinaUnit+"</p>"
                             + "<p style='color:#666;font-size:14px;max-width: 110px;overflow: hidden;text-overflow: ellipsis;white-space: nowrap;'>" + o.name + "</p>"
                             + "</div>"
                 })
@@ -107,8 +114,8 @@
             }
         })
     }
-    function  createBookDetail2(index) {
-        createBookDetail(index,condition);
+    function createBookDetail2(index) {
+        createBookDetail(index, condition);
     }
     function clickCategory(id) {
 
@@ -184,6 +191,83 @@
             createBookDetail(data1.pageIndex + 1, condition)
             data1.pageIndex += 1;
         }
+    }
+</script>
+
+<div class="container">
+    <div id="close" class="close">X</div>
+    <div id="login" class="login">
+        <div class="title">
+            <h2>账号登录</h2>
+            <a href="javascript:;" class="regeister" id="getAccount">获取账号</a>
+        </div>
+        <div class="username">
+            <input class="iptUser" type="text" id="iptUser" required placeholder="输入用户名">
+        </div>
+        <div class="pwd">
+            <input class="iptPwd" type="password" id="iptPwd" required placeholder="输入密码">
+        </div>
+        <div class="other">
+            <div class="other-left">
+                <input id="autoLogin" type="checkbox" checked>下次自动登录
+            </div>
+        </div>
+        <button class="btnLogin" onclick="btnLogin();">登录</button>
+    </div>
+    <div id="Account" class="getAccount">
+        <div class="title">
+            <h2>获取账号</h2>
+            <a href="javascript:;" class="regeister" id="getLogin">账号登录</a>
+        </div>
+        <div class="contentList" style="text-align: center;border: dotted;margin: auto">
+
+                <p>如需要获取账号请与我们店长联系：</p>
+                <p style="color: red;font-size: 18px;margin-top: 15px">tel:${sessionScope.shopMsg.tel}</p>
+                <p style="color: red;font-size: 18px">Wx:${sessionScope.shopMsg.wx}</p>
+
+        </div>
+    </div>
+</div>
+<script>
+    $(function () {
+
+        $("#getAccount").click(function () {
+            $(".container").show();
+            $("#login").hide();
+            $("#Account").show();
+        })
+
+
+        $("#getLogin").click(function () {
+            $(".container").show();
+            $("#Account").hide();
+            $("#login").show();
+        })
+
+        $("#close").click(function () {
+            $(".container").hide();
+            $("#Account").hide();
+            $("#login").hide();
+        })
+    })
+
+    function btnLogin() {
+        var username = $("#iptUser").val()
+        var password = $("#iptPwd").val()
+        $.ajax({
+            url: "${pageContext.request.contextPath}/user/login",
+            data: {"username": username, "password": password},
+            type: "post",
+            dataType: "json",
+            success: function (result) {
+                if (result == "success") {
+                    location.reload();
+                } else {
+                    alert("您不是当前店铺用户或输入有误");
+                }
+            }
+        })
+
     }
 </script>
 

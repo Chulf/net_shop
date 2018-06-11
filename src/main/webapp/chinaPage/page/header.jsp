@@ -12,7 +12,6 @@
         <div class="fr my">
             <input id="changeLang" type="button" value="Italian" onclick="changeLang()" class="fl my_commodity"/>
             <input id="btnLogin" type="button" value="登录" onclick="toLogin()" class="fl my_commodity"/>
-            <input type="button" value="注册" onclick="toRegist()" class="fl my_order"/>
             <input type="button" value="成为商家" onclick="toAdmin()" class="fl my_order"/>
         </div>
         <script type="text/javascript">
@@ -24,7 +23,10 @@
                 location.href = url + "?adminId=${sessionScope.adminMsg.id}"
             }
             function toLogin() {
-                jumpToPage("${pageContext.request.contextPath}/chinaPage/page/login.jsp");
+                //jumpToPage("${pageContext.request.contextPath}/chinaPage/page/login.jsp");
+                $(".container").show();
+                $("#login").hide();
+                $("#Account").show();
             }
             function toRegist() {
                 jumpToPage("${pageContext.request.contextPath}/chinaPage/page/register.jsp");
@@ -63,7 +65,9 @@
                     window.location = "${pageContext.request.contextPath}/chinaPage/page/order.jsp?adminId=${sessionScope.adminMsg.id}";
                 }
                 else {
-                    window.location = "${pageContext.request.contextPath}/chinaPage/page/login.jsp"
+                    $(".container").show();
+                    $("#login").hide();
+                    $("#Account").show();
                 }
             }
         </script>

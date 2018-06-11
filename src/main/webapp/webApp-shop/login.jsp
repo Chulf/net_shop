@@ -29,7 +29,7 @@
 					<input id="iptPwd" class="iptPwd" type="password" placeholder="请输入密码" maxlength="20" required />
 				</div>
 				<div class="runRegeister">
-					<a href="regeister.jsp" class="txtRegeister" style="margin-left: auto;color: red">立即注册</a>
+					<a href="getAccount.jsp" class="txtRegeister" style="margin-left: auto;color: red">获取账号</a>
 				</div>
 				<div class="login-button">
 					<input id="btnLogin" class="iptButton" type="button" value="登录" />

@@ -2,7 +2,7 @@
 spring:
   datasource:
     type: com.alibaba.druid.pool.DruidDataSource
-    url: jdbc:mysql://localhost:3306/net_shop?useUnicode=true&characterEncoding=UTF8
+    url: jdbc:mysql://localhost:3306/net_shop2?useUnicode=true&characterEncoding=UTF8
     username: root
     password: root
 #===== 视图层配置 ======#

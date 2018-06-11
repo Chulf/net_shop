@@ -23,6 +23,10 @@ public class SurlEntity implements java.io.Serializable {
 
 	//推荐状态 Y为推荐
 	private String recommend;
+
+	private String tel;
+	private String wx;
+
 	/**
 	 *方法: 取得java.lang.String
 	 *@return: java.lang.String  主键
@@ -111,5 +115,21 @@ public class SurlEntity implements java.io.Serializable {
 
 	public void setRecommend(String recommend) {
 		this.recommend = recommend;
+	}
+
+	public String getTel() {
+		return tel;
+	}
+
+	public void setTel(String tel) {
+		this.tel = tel;
+	}
+
+	public String getWx() {
+		return wx;
+	}
+
+	public void setWx(String wx) {
+		this.wx = wx;
 	}
 }

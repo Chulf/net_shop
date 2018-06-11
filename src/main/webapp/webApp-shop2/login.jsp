@@ -29,7 +29,7 @@
 					<input id="iptPwd" class="iptPwd" type="password" placeholder="Per favore inserisci la tua password" maxlength="20" required />
 				</div>
 				<div class="runRegeister">
-					<a href="regeister.jsp" class="txtRegeister" style="margin-left: auto;color: red">Registrati ora</a>
+					<a href="getAccount.jsp.jsp" class="txtRegeister" style="margin-left: auto;color: red">Ottieni un account</a>
 				</div>
 				<div class="login-button">
 					<input id="btnLogin" class="iptButton" type="button" value="Accedi" />

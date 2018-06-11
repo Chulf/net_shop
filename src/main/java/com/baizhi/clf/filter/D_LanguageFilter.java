@@ -1,6 +1,7 @@
 package com.baizhi.clf.filter;
 
 import com.baizhi.clf.entity.Admin;
+import com.baizhi.clf.entity.SuserEntity;
 import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
@@ -34,6 +35,7 @@ public class D_LanguageFilter implements Filter {
         HttpSession session = request2.getSession();
 
         Admin admin = (Admin) session.getAttribute("adminMsg");
+        SuserEntity user = (SuserEntity) session.getAttribute("user");
 
         //获取请求的url
         String str = request2.getRequestURL().toString();
@@ -47,45 +49,41 @@ public class D_LanguageFilter implements Filter {
         System.out.println(language);
         if (language.startsWith("zh")) {
             //跳转中文界面
-
             if (userAgent.indexOf("Android") != -1 || userAgent.indexOf("iPhone") != -1 || userAgent.indexOf("iPad") != -1) {
                 //手机
-                if(admin.getUsername().equals("SuperAdmin")){
-                    response2.sendRedirect("/webApp-shop/login.jsp");
-                }else{
-                    response2.sendRedirect("/webApp-shop/home.jsp?adminId="+admin.getId());
-                }
+                response2.sendRedirect("/webApp-shop/home.jsp?adminId=" + admin.getId());
+
                 return;
             } else {
                 //电脑
-                if(admin.getUsername().equals("SuperAdmin")){
-                    response2.sendRedirect("/chinaPage/page/login.jsp");
-                }else{
-                    response2.sendRedirect("/chinaPage/page/booklist.jsp?adminId="+admin.getId());
+                if (admin.getUsername().equals("SuperAdmin")) {
+                    response2.sendRedirect("/chinaPage/page/booklist.jsp?adminId=" + admin.getId());
+                } else {
+                    response2.sendRedirect("/chinaPage/page/booklist.jsp?adminId=" + admin.getId());
                 }
                 return;
             }
 
-        } else {
+        } else
+
+        {
             //跳转意大利界面
             if (userAgent.indexOf("Android") != -1 || userAgent.indexOf("iPhone") != -1 || userAgent.indexOf("iPad") != -1) {
                 //手机
-                if(admin.getUsername().equals("SuperAdmin")){
-                    response2.sendRedirect("/webApp-shop2/login.jsp");
-                }else{
-                    response2.sendRedirect("/webApp-shop2/home.jsp?adminId="+admin.getId());
-                }
+                response2.sendRedirect("/webApp-shop2/home.jsp?adminId=" + admin.getId());
+
                 return;
             } else {
                 //电脑
-                if(admin.getUsername().equals("SuperAdmin")){
-                    response2.sendRedirect("/italyPage/page/login.jsp");
-                }else{
-                    response2.sendRedirect("/italyPage/page/booklist.jsp?adminId="+admin.getId());
+                if (admin.getUsername().equals("SuperAdmin")) {
+                    response2.sendRedirect("/italyPage/page/booklist.jsp?adminId=" + admin.getId());
+                } else {
+                    response2.sendRedirect("/italyPage/page/booklist.jsp?adminId=" + admin.getId());
                 }
                 return;
             }
         }
+
     }
 
     @Override

@@ -17,6 +17,8 @@ public class SuserEntity implements java.io.Serializable {
 	private String phone;
 	/**邮箱地址*/
 	private String email;
+	//店铺外键
+	private String shopId;
 	
 	/**
 	 *方法: 取得java.lang.String
@@ -97,5 +99,13 @@ public class SuserEntity implements java.io.Serializable {
 	 */
 	public void setEmail(String email){
 		this.email = email;
+	}
+
+	public String getShopId() {
+		return shopId;
+	}
+
+	public void setShopId(String shopId) {
+		this.shopId = shopId;
 	}
 }

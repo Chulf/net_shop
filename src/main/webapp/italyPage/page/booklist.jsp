@@ -6,6 +6,7 @@
     <title>Product - Lu Food Mall</title>
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/italyPage/css/common.css"/>
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/italyPage/css/booklist-style.css"/>
+    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/chinaPage/css/login-dialog.css"/>
     <script type="text/javascript" src="${pageContext.request.contextPath}/italyPage/js/jquery.min.js"></script>
 </head>
 <body>
@@ -64,7 +65,14 @@
 <script type="text/javascript">
 
     function jumpToDetail(id) {
-        location.href = "${pageContext.request.contextPath}/italyPage/page/details.jsp?id=" + id + "&adminId=${sessionScope.adminMsg.id}"
+        if (${sessionScope.user != null}) {
+            location.href = "${pageContext.request.contextPath}/chinaPage/page/details.jsp?id=" + id + "&adminId=${sessionScope.adminMsg.id}"
+        } else {
+//            alert("请先完成登录！")
+            $(".container").show();
+            $("#login").hide();
+            $("#Account").show();
+        }
     }
 
     var condition = "";
@@ -181,6 +189,83 @@
         } else {
             createBookDetail(data1.pageIndex+1, condition)
         }
+    }
+</script>
+
+<div class="container">
+    <div id="close" class="close">X</div>
+    <div id="login" class="login">
+        <div class="title">
+            <h3>Accesso all'account</h3>
+            <a href="javascript:;" class="regeister" id="getAccount">Ottieni un account</a>
+        </div>
+        <div class="username">
+            <input class="iptUser" type="text" id="iptUser" required placeholder="Inserisci il nome utente">
+        </div>
+        <div class="pwd">
+            <input class="iptPwd" type="password" id="iptPwd" required placeholder="Inserire la password">
+        </div>
+        <div class="other">
+            <div class="other-left">
+                <input id="autoLogin" type="checkbox" checked><p>Ricordati di me</p>
+            </div>
+        </div>
+        <button class="btnLogin" onclick="btnLogin();">Accedi</button>
+    </div>
+    <div id="Account" class="getAccount">
+        <div class="title">
+            <h3>Ottieni un account</h3>
+            <a href="javascript:;" class="regeister" id="getLogin">Accesso all'account</a>
+        </div>
+        <div class="contentList" style="text-align: center;border: dotted;margin: auto">
+
+            <p>Se è necessario ottenere un account, si prega di contattare il nostro manager：</p>
+            <p style="color: red;font-size: 18px;margin-top: 15px">tel:${sessionScope.shopMsg.tel}</p>
+            <p style="color: red;font-size: 18px">Wx:${sessionScope.shopMsg.wx}</p>
+
+        </div>
+    </div>
+</div>
+<script>
+    $(function () {
+
+        $("#getAccount").click(function () {
+            $(".container").show();
+            $("#login").hide();
+            $("#Account").show();
+        })
+
+
+        $("#getLogin").click(function () {
+            $(".container").show();
+            $("#Account").hide();
+            $("#login").show();
+        })
+
+        $("#close").click(function () {
+            $(".container").hide();
+            $("#Account").hide();
+            $("#login").hide();
+        })
+    })
+
+    function btnLogin() {
+        var username = $("#iptUser").val()
+        var password = $("#iptPwd").val()
+        $.ajax({
+            url: "${pageContext.request.contextPath}/user/login",
+            data: {"username": username, "password": password},
+            type: "post",
+            dataType: "json",
+            success: function (result) {
+                if (result == "success") {
+                    location.reload();
+                } else {
+                    alert("Non sei l'attuale utente del negozio o l'input non è corretto");
+                }
+            }
+        })
+
     }
 </script>
 

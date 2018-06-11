@@ -187,7 +187,12 @@
 	<script>
 		$(function(){
 			//alert();
-			loadRemoteData("${sessionScope.adminMsg.id}","${sessionScope.adminMsg.username}");
+			if(${sessionScope.user == null}){
+			  //用户没有登录跳转登录页面
+				location.href = "${pageContext.request.contextPath}/webApp-shop/login.jsp";
+			}else{
+			  loadRemoteData("${sessionScope.adminMsg.id}","${sessionScope.adminMsg.username}");
+			}
 		})
 	</script>
 </body>
