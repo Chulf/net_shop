@@ -63,7 +63,7 @@
 
 				document.getElementById("productDescription").innerHTML = product.description;
 
-				document.getElementById("productPrice").innerHTML = "€"+product.price;
+				document.getElementById("productPrice").innerHTML = "€"+product.price+"/"+product.italyUnit;
 
 				document.getElementById("productContent").innerHTML = product.content;
 

@@ -162,7 +162,7 @@ loadRemoteData = function(adminId,adminName) {
             success: function (data) {
                 $("#product-info").empty();
                 $.each(JSON.parse(data), function (index, el) {
-                    var str = `<li data-goodsId=${el.id}>
+                    var str = `<li data-goodsId=${el.id} onclick="booleanLogin2()">
                                     <div class="left-img">
                                         <a href="#">
                                             <img src=${getHostName2()}/net_shop_manager/${el.imgsrc} alt="">
@@ -171,9 +171,7 @@ loadRemoteData = function(adminId,adminName) {
                                     <div class="middle-info">
                                         <div class="product-name">${el.name}
                                         </div>
-                                        <div class="product-price">
-                                            €${el.price}/${el.chinaUnit}
-                                        </div>
+                                        ${booleanLogin(el.price,el.chinaUnit)}
                                     </div>
                                     <div class="right-num">
                                         <span id="minusOne" class="iconfont  icon-subtract minusOne"></span>
@@ -201,7 +199,7 @@ loadRemoteData = function(adminId,adminName) {
             success: function (data) {
                 $("#product-info").empty();
                 $.each(JSON.parse(data), function (index, el) {
-                    var str = `<li data-goodsId=${el.id}>
+                    var str = `<li data-goodsId=${el.id} onclick="booleanLogin2()">
                                     <div class="left-img">
                                         <a href="#">
                                             <img src=http://lu-food.com/net_shop_manager/${el.imgsrc} alt="">
@@ -210,9 +208,7 @@ loadRemoteData = function(adminId,adminName) {
                                     <div class="middle-info">
                                         <div class="product-name">${el.name}
                                         </div>
-                                        <div class="product-price">
-                                            €${el.price}
-                                        </div>
+                                        ${booleanLogin(el.price,el.chinaUnit)}
                                     </div>
                                     <div class="right-num">
                                         <span id="minusOne" class="iconfont  icon-subtract minusOne"></span>
@@ -315,8 +311,6 @@ loadRemoteData = function(adminId,adminName) {
     }
 
 
-
-
     // 搜索部分
     $("#categary-left").on("touchend", "#search", function () {
         $(".searchTop").toggle();
@@ -343,7 +337,7 @@ loadRemoteData = function(adminId,adminName) {
                 if (data != "[]") {
                     $("#product-info").empty();
                     $.each(JSON.parse(data), function (index, el) {
-                        var str = `<li data-goodsId=${el.id}>
+                        var str = `<li data-goodsId=${el.id} onclick="booleanLogin2()">
                                         <div class="left-img">
                                             <a href="#">
                                                 <img src=${getHostName2()}/net_shop_manager/${el.imgsrc} alt="">
@@ -352,9 +346,7 @@ loadRemoteData = function(adminId,adminName) {
                                         <div class="middle-info">
                                             <div class="product-name">${el.name}
                                             </div>
-                                            <div class="product-price">
-                                                €${el.price}
-                                            </div>
+                                            ${booleanLogin(el.price,el.chinaUnit)}
                                         </div>
                                         <div class="right-num">
                                             <span id="minusOne" class="iconfont  icon-subtract minusOne"></span>
