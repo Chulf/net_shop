@@ -40,6 +40,8 @@ public class D_LanguageFilter implements Filter {
         //获取请求的url
         String str = request2.getRequestURL().toString();
 
+        String contextPath = request2.getContextPath();
+
         Locale locale = request2.getLocale();
         //获取请求的浏览器语言
         String language = locale.getLanguage();
@@ -51,15 +53,15 @@ public class D_LanguageFilter implements Filter {
             //跳转中文界面
             if (userAgent.indexOf("Android") != -1 || userAgent.indexOf("iPhone") != -1 || userAgent.indexOf("iPad") != -1) {
                 //手机
-                response2.sendRedirect("/webApp-shop/home.jsp?adminId=" + admin.getId());
+                response2.sendRedirect(contextPath+"/webApp-shop/home.jsp?adminId=" + admin.getId());
 
                 return;
             } else {
                 //电脑
                 if (admin.getUsername().equals("SuperAdmin")) {
-                    response2.sendRedirect("/chinaPage/page/booklist.jsp?adminId=" + admin.getId());
+                    response2.sendRedirect(contextPath+"/chinaPage/page/booklist.jsp?adminId=" + admin.getId());
                 } else {
-                    response2.sendRedirect("/chinaPage/page/booklist.jsp?adminId=" + admin.getId());
+                    response2.sendRedirect(contextPath+"/chinaPage/page/booklist.jsp?adminId=" + admin.getId());
                 }
                 return;
             }
@@ -70,15 +72,15 @@ public class D_LanguageFilter implements Filter {
             //跳转意大利界面
             if (userAgent.indexOf("Android") != -1 || userAgent.indexOf("iPhone") != -1 || userAgent.indexOf("iPad") != -1) {
                 //手机
-                response2.sendRedirect("/webApp-shop2/home.jsp?adminId=" + admin.getId());
+                response2.sendRedirect(contextPath+"/webApp-shop2/home.jsp?adminId=" + admin.getId());
 
                 return;
             } else {
                 //电脑
                 if (admin.getUsername().equals("SuperAdmin")) {
-                    response2.sendRedirect("/italyPage/page/booklist.jsp?adminId=" + admin.getId());
+                    response2.sendRedirect(contextPath+"/italyPage/page/booklist.jsp?adminId=" + admin.getId());
                 } else {
-                    response2.sendRedirect("/italyPage/page/booklist.jsp?adminId=" + admin.getId());
+                    response2.sendRedirect(contextPath+"/italyPage/page/booklist.jsp?adminId=" + admin.getId());
                 }
                 return;
             }
