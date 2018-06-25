@@ -1,12 +1,12 @@
 <%@ page pageEncoding="UTF-8" %>
 <!DOCTYPE html>
 <html lang="en">
-<script src="${pageContext.request.contextPath}/webApp-shop/js/ContextPath.js"></script>
+<script src="${pageContext.request.contextPath}/webApp-shop3/js/ContextPath.js"></script>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <title>福田食品</title>
+    <title>Lu-food</title>
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/iconfont.css">
     <link rel="stylesheet" href="css/header.css">
@@ -77,21 +77,21 @@
     <div class="left">
         <img src="images/sp3_3.png" alt="">
     </div>
-    <div class="title">${sessionScope.shopMsg.name1}</div>
-    <div class="right" style="margin-right: 30px;"><input id="language" type="button" value="English"
+    <div class="title">${sessionScope.shopMsg.name2}</div>
+    <div class="right" style="margin-right: 30px;"><input id="language" type="button" value="China"
                                                           onclick="toItalyPage();"></div>
     <script>
         // 去意大利界面
         function toItalyPage() {
-            location.href = getHostName() + "/webApp-shop3/home.jsp";
+            location.href = getHostName() + "/webApp-shop/home.jsp";
         }
     </script>
 </header>
 <div class="categary">
     <div class="searchTop">
         <div class="iptSearch">
-            <input id="iptGoodsName" type="text" placeholder="请输入商品名称">
-            <div id="btnSearch" class="btn btnSure m0">搜索</div>
+            <input id="iptGoodsName" type="text" placeholder="Please enter the product name">
+            <div id="btnSearch" class="btn btnSure m0">Search</div>
         </div>
     </div>
     <div id="categary-left" class="categary-left">
@@ -168,18 +168,18 @@
     <script>
         // 去结算
         function btnPay(user) {
-            location.href = getHostName() + "/webApp-shop/shoppingCar.jsp";
+            location.href = getHostName() + "/webApp-shop3/shoppingCar.jsp";
         }
     </script>
-    <div id="btnPay" class="btnPay" onclick="btnPay()">去结算</div>
+    <div id="btnPay" class="btnPay" onclick="btnPay()">Clearing</div>
 </div>
 <!-- 模态框 -->
 <div id="mask" class="mask">
     <div class="close"><span id="close">X</span></div>
-    <p class="txt">确认要将此商品从购物车移除吗？</p>
+    <p class="txt">Are you sure you want to remove this item from your shopping cart?</p>
     <div class="btn">
-        <button id="btnSure" class="btnSure">确定</button>
-        <button id="btnCancel" class="btnCancel">取消</button>
+        <button id="btnSure" class="btnSure">Determine</button>
+        <button id="btnCancel" class="btnCancel">Cancel</button>
     </div>
 </div>
 
@@ -190,19 +190,19 @@
         <a href="home.jsp">
             <li>
                 <i class="iconfont icon-category"></i>
-                <span>选购</span>
+                <span>Purchase</span>
             </li>
         </a>
         <a href="shoppingCar.jsp">
             <li>
                 <i class="iconfont icon-cart"></i>
-                <span>购物车</span>
+                <span>Shopping cart</span>
             </li>
         </a>
         <a href="mine.jsp">
             <li>
                 <i class="iconfont icon-account"></i>
-                <span>个人中心</span>
+                <span>Personal center</span>
             </li>
         </a>
     </ul>
@@ -218,33 +218,33 @@
     <div id="close2" class="close2">X</div>
     <div id="login" class="login">
         <div class="title">
-            <h3>账号登录</h3>
-            <a href="javascript:;" class="regeister" id="getAccount">获取账号</a>
+            <h3>Account login</h3>
+            <a href="javascript:;" class="regeister" id="getAccount">Get an account</a>
         </div>
         <div class="username">
-            <input class="iptUser" type="text" id="iptUser" required placeholder="输入用户名">
+            <input class="iptUser" type="text" id="iptUser" required placeholder="Enter your user name">
         </div>
         <div class="pwd">
-            <input class="iptPwd" type="password" id="iptPwd" required placeholder="输入密码">
+            <input class="iptPwd" type="password" id="iptPwd" required placeholder="Enter password">
         </div>
         <div class="other">
             <div class="other-left">
-                <input id="autoLogin" type="checkbox" checked>下次自动登录
+                <input id="autoLogin" type="checkbox" checked>Remember login
             </div>
         </div>
-        <button class="btnLogin" onclick="btnLogin();">登录</button>
+        <button class="btnLogin" onclick="btnLogin();">Login</button>
     </div>
     <div id="Account" class="getAccount">
         <div class="title">
-            <h3>获取账号</h3>
-            <a href="javascript:;" class="regeister" id="getLogin">账号登录</a>
+            <h3>Get an account</h3>
+            <a href="javascript:;" class="regeister" id="getLogin">Account login</a>
         </div>
         <div class="contentList" style="text-align: center;border: dotted;margin: auto">
 
-            <p>如需要获取账号请与我们店长联系：</p>
-            <p style="color: red;font-size: 18px;margin-top: 15px">电话:${sessionScope.shopMsg.tel}</p>
-            <p style="color: red;font-size: 18px">微信:${sessionScope.shopMsg.wx}</p>
-            <p style="color: red;font-size: 18px">手机:${sessionScope.shopMsg.whatsapp}</p>
+            <p>If you need to get an account, please contact us：</p>
+            <p style="color: red;font-size: 18px;margin-top: 15px">Tel:${sessionScope.shopMsg.tel}</p>
+            <p style="color: red;font-size: 18px">Wechat:${sessionScope.shopMsg.wx}</p>
+            <p style="color: red;font-size: 18px">Whatsapp:${sessionScope.shopMsg.whatsapp}</p>
 
         </div>
     </div>
@@ -284,7 +284,7 @@
                 if (result == "success") {
                     location.reload();
                 } else {
-                    alert("您不是当前店铺用户或输入有误");
+                    alert("You are not the current store user or the input is incorrect");
                 }
             }
         })

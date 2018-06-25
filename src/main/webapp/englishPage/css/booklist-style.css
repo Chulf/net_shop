@@ -1,0 +1,42 @@
+
+/*面包屑导航*/
+.bread_nav{
+	overflow: hidden;
+	width: 1200px;
+	margin: 20px auto;
+}
+.bread_nav>li{
+	float: left;
+}
+/*wrap*/
+.wrap{
+	overflow: hidden;
+	width: 1200px;
+	margin: 0 auto;
+}
+.content_box {border-radius: 12px;border: 2px solid #fe5313; background-color:#FFF;}
+.content_box legend{padding:8px 26px 8px 22px; background-image:url(../img/leg_img.png); font-size:22px; background-repeat:no-repeat; background-size:23%; font-weight:900; color:#646464; background-color:#f5f5f5; border-radius:0 30px 30px 0; border:2px solid #e5e5e5}
+.content_box legend select{margin-left:30px; padding:3px 6px; border-radius: 6px; color:#808080 }
+.main_box{ width:920px;margin:0 auto;}
+.content{text-align: center; margin:16px; background-color:#f5f5f5;
+	border:1px solid #eeeeee; border-radius:8px; cursor:pointer;}
+.content:hover{ border:1px solid #787878;}
+.content img{ border-radius:10px 10px 0 0;}
+.content p{ padding-top:6px; font-size:14px;}
+.pages{
+	clear: both;
+	float: right;
+	margin-top: 20px;
+}
+
+.pages a{ text-align:center; font-size:14px; display:block; float:left; border-right:1px solid #353535;width:16px; height:16px; color:#353535}
+.pages a:hover{ color:#fff; background-color:#ffb637; border-radius:5px; border-right:1px solid #e56510}
+.pages .befor_nt{ width:52px;}
+
+
+
+
+
+
+
+
