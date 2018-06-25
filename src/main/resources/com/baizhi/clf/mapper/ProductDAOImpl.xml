@@ -52,12 +52,13 @@
     </select>
     
     <select id="selectCountsByDsql" resultType="Integer">
-        select count(*)
-        from  s_product
-        s left join s_admin_product sa
+       select count(*) from
+       ( select s.name
+        from  s_product s
+        left join s_admin_product sa
         on s.id = sa.product_id
         ${condition}
-        group by s.name
+        group by s.name ) a;
     </select>
 
 </mapper>
