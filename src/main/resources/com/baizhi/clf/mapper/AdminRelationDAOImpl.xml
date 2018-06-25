@@ -9,13 +9,13 @@
      </select>
 
     <select id="selectAdminProducts" resultType="sadminProductEntity">
-        select id,admin_id as adminId,product_id as productId,price
+        select id,admin_id as adminId,product_id as productId,price,description
         from s_admin_product
         where admin_id = #{adminId}
     </select>
 
     <select id="selectAdminProduct" resultType="sadminProductEntity">
-        select id,admin_id as amdinId,product_id as productId,price
+        select id,admin_id as amdinId,product_id as productId,price,description
         from s_admin_product
         where admin_id = #{adminId} and product_id = #{productId}
     </select>

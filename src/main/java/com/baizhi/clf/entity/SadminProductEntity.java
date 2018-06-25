@@ -13,6 +13,8 @@ public class SadminProductEntity implements java.io.Serializable {
 	private String adminId;
 	/**商品价格*/
 	private Double price;
+
+	private String description;
 	
 	/**
 	 *方法: 取得java.lang.String
@@ -77,5 +79,13 @@ public class SadminProductEntity implements java.io.Serializable {
 	 */
 	public void setPrice(Double price){
 		this.price = price;
+	}
+
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
 	}
 }

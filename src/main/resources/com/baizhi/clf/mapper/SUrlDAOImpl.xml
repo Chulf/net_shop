@@ -3,7 +3,7 @@
 <mapper namespace="com.baizhi.clf.dao.SUrlDAO">
 
     <sql id="selectSql">
-         select id,admin_id as adminId,url,status,name1,name2,recommend,tel,wx
+         select id,admin_id as adminId,url,status,name1,name2,recommend,tel,wx,whatsapp
          from s_url
 
     </sql>

@@ -16,9 +16,10 @@
     <script src="js/lib/zepto.min.js"></script>
     <script>
         //判断否显示价格
-        function booleanLogin(price, unit) {
+        function booleanLogin(price, unit,description) {
             if (${sessionScope.user != null}) {
-                return "<div class='product-price'>€" + price + "/" + unit + "</div>"
+                return "<div class='product-name'>"+description+"</div>" +
+                    "<div class='product-price'>€" + price + "/" + unit + "</div>"
             } else {
                 return "";
             }
@@ -243,7 +244,8 @@
 
             <p>Se è necessario ottenere un account, si prega di contattare il nostro manager：</p>
             <p style="color: red;font-size: 18px;margin-top: 15px">tel:${sessionScope.shopMsg.tel}</p>
-            <p style="color: red;font-size: 18px">Wx:${sessionScope.shopMsg.wx}</p>
+            <p style="color: red;font-size: 18px">wechat:${sessionScope.shopMsg.wx}</p>
+            <p style="color: red;font-size: 18px">handy whatsapp:${sessionScope.shopMsg.whatsapp}</p>
 
         </div>
     </div>

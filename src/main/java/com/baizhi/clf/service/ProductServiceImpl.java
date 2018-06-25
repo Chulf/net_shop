@@ -69,6 +69,8 @@ public class ProductServiceImpl implements ProductService {
                 //把当前类别商品添加到集合
                 //覆盖价格为当前店铺价格
                 product1.setPrice(adminProduct.getPrice());
+                //覆盖描述信息为当前店铺描述
+                product1.setDescription(adminProduct.getDescription());
                 products.add(product1);
             }
         }
@@ -126,6 +128,8 @@ public class ProductServiceImpl implements ProductService {
             SproductEntity sproductEntity = productDAO.selectProductById(adminProducts.get(i).getProductId());
             //覆盖价格为商铺自定义价格
             sproductEntity.setPrice(adminProducts.get(i).getPrice());
+            //覆盖描述信息为店铺自定义描述
+            sproductEntity.setDescription(adminProducts.get(i).getDescription());
             products.add(sproductEntity);
         }
 
@@ -155,6 +159,9 @@ public class ProductServiceImpl implements ProductService {
             SadminProductEntity sadminProductEntity1 = adminRelationDAO.selectAdminProduct(sadminProductEntity);
 
             sproductEntity.setPrice(sadminProductEntity1.getPrice());
+            //覆盖描述信息
+            sproductEntity.setDescription(sadminProductEntity1.getDescription());
+
             return sproductEntity;
         }
 

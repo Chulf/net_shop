@@ -171,7 +171,7 @@ loadRemoteData = function(adminId,adminName) {
                                     <div class="middle-info">
                                         <div class="product-name">${el.name}
                                         </div>
-                                        ${booleanLogin(el.price,el.italyUnit)}
+                                        ${booleanLogin(el.price,el.italyUnit,el.description)}
                                     </div>
                                     <div class="right-num">
                                         <span id="minusOne" class="iconfont  icon-subtract minusOne"></span>
@@ -208,7 +208,7 @@ loadRemoteData = function(adminId,adminName) {
                                     <div class="middle-info">
                                         <div class="product-name">${el.name}
                                         </div>
-                                         ${booleanLogin(el.price,el.italyUnit)}
+                                         ${booleanLogin(el.price,el.italyUnit,el.description)}
                                     </div>
                                     <div class="right-num">
                                         <span id="minusOne" class="iconfont  icon-subtract minusOne"></span>
@@ -348,7 +348,7 @@ loadRemoteData = function(adminId,adminName) {
                                         <div class="middle-info">
                                             <div class="product-name">${el.name}
                                             </div>
-                                             ${booleanLogin(el.price,el.italyUnit)}
+                                             ${booleanLogin(el.price,el.italyUnit,el.description)}
                                         </div>
                                         <div class="right-num">
                                             <span id="minusOne" class="iconfont  icon-subtract minusOne"></span>

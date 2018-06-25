@@ -97,10 +97,19 @@
             dataType: "json",
             success: function (data) {
                 $.each(data, function (index, o) {
-                    content2 += "<div class='content fl' style='box-shadow:2px 6px 8px rgba(100,100,100,0.2), 3px 10px 20px rgba(200,200,200,0.2);' onclick='jumpToDetail(\"" + o.id + "\");'>"
+                    if(${sessionScope.user != null}){
+                        content2 += "<div class='content fl' style='box-shadow:2px 6px 8px rgba(100,100,100,0.2), 3px 10px 20px rgba(200,200,200,0.2);' onclick='jumpToDetail(\"" + o.id + "\");'>"
                             + "<img src='http://${pageContext.request.serverName}/net_shop_manager/" + o.imgsrc + "' width='150' height='150'/>"
-                            + "<p style='color:#666;font-size:14px;max-width: 110px;overflow: hidden;text-overflow: ellipsis;white-space: nowrap;'>" + o.name + "</p>"
+                            + "<p style='color:red;font-size:14px;max-width: 110px;overflow: hidden;text-overflow: ellipsis;white-space: nowrap;'>" + o.name + "</p>"
+                            + "<p style='color:#666;font-size:14px;max-width: 110px;overflow: hidden;text-overflow: ellipsis;white-space: nowrap;'>" + o.description + "</p>"
                             + "</div>"
+
+                    }else{
+                        content2 += "<div class='content fl' style='box-shadow:2px 6px 8px rgba(100,100,100,0.2), 3px 10px 20px rgba(200,200,200,0.2);' onclick='jumpToDetail(\"" + o.id + "\");'>"
+                                + "<img src='http://${pageContext.request.serverName}/net_shop_manager/" + o.imgsrc + "' width='150' height='150'/>"
+                                + "<p style='color:red;font-size:14px;max-width: 110px;overflow: hidden;text-overflow: ellipsis;white-space: nowrap;'>" + o.name + "</p>"
+                                + "</div>"
+                    }
                 })
                 document.getElementById("main_box").innerHTML = content2;
 
@@ -222,8 +231,9 @@
         <div class="contentList" style="text-align: center;border: dotted;margin: auto">
 
                 <p>如需要获取账号请与我们店长联系：</p>
-                <p style="color: red;font-size: 18px;margin-top: 15px">tel:${sessionScope.shopMsg.tel}</p>
-                <p style="color: red;font-size: 18px">Wx:${sessionScope.shopMsg.wx}</p>
+                <p style="color: red;font-size: 18px;margin-top: 15px">电话:${sessionScope.shopMsg.tel}</p>
+                <p style="color: red;font-size: 18px">微信:${sessionScope.shopMsg.wx}</p>
+                <p style="color: red;font-size: 18px">手机:${sessionScope.shopMsg.whatsapp}</p>
 
         </div>
     </div>

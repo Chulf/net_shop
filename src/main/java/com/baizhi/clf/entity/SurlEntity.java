@@ -26,6 +26,8 @@ public class SurlEntity implements java.io.Serializable {
 
 	private String tel;
 	private String wx;
+	private String whatsapp;
+
 
 	/**
 	 *方法: 取得java.lang.String
@@ -131,5 +133,13 @@ public class SurlEntity implements java.io.Serializable {
 
 	public void setWx(String wx) {
 		this.wx = wx;
+	}
+
+	public String getWhatsapp() {
+		return whatsapp;
+	}
+
+	public void setWhatsapp(String whatsapp) {
+		this.whatsapp = whatsapp;
 	}
 }
