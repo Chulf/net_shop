@@ -45,6 +45,7 @@
         s left join s_admin_product sa
         on s.id = sa.product_id
         ${condition}
+        group by s.name
         <if test="page != null">
             limit #{page.startIndex},#{page.pageRows}
         </if>
@@ -56,6 +57,7 @@
         s left join s_admin_product sa
         on s.id = sa.product_id
         ${condition}
+        group by s.name
     </select>
 
 </mapper>
