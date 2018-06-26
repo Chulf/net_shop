@@ -7,6 +7,6 @@
         <p>If you need to get an account, please contact us：</p>
         <p style="color: red;font-size: 50px;margin-top: 15px">Tel:${sessionScope.shopMsg.tel}</p>
         <p style="color: red;font-size: 50px">Wechat:${sessionScope.shopMsg.wx}</p>
-        <p style="color: red;font-size: 50px">Whatsapp:${sessionScope.shopMsg.whatsapp}</p>
+        <p style="color: red;font-size: 50px">handy/WhatsApp:${sessionScope.shopMsg.whatsapp}</p>
     </div>
 </html>
