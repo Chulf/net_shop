@@ -1,5 +1,6 @@
 package com.baizhi.clf;
 
+import com.baizhi.clf.controller.ProductController;
 import com.baizhi.clf.dao.UserDAO;
 import com.baizhi.clf.entity.SuserEntity;
 import org.junit.Test;
