@@ -230,10 +230,10 @@
         </div>
         <div class="contentList" style="text-align: center;border: dotted;margin: auto">
 
-                <p>If you need to get an account, please contact our manager：</p>
+                <p>If you need to get an account, please contact us：</p>
                 <p style="color: red;font-size: 18px;margin-top: 15px">Tel:${sessionScope.shopMsg.tel}</p>
                 <p style="color: red;font-size: 18px">WeChat:${sessionScope.shopMsg.wx}</p>
-                <p style="color: red;font-size: 18px">WhatSapp:${sessionScope.shopMsg.whatsapp}</p>
+                <p style="color: red;font-size: 18px">Handy/WhatsApp:${sessionScope.shopMsg.whatsapp}</p>
 
         </div>
     </div>

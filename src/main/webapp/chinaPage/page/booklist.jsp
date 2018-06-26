@@ -207,7 +207,7 @@
     <div id="close" class="close">X</div>
     <div id="login" class="login">
         <div class="title">
-            <h2>账号登录</h2>
+            <h3>账号登录</h3>
             <a href="javascript:;" class="regeister" id="getAccount">获取账号</a>
         </div>
         <div class="username">
@@ -225,15 +225,15 @@
     </div>
     <div id="Account" class="getAccount">
         <div class="title">
-            <h2>获取账号</h2>
+            <h3>获取账号</h3>
             <a href="javascript:;" class="regeister" id="getLogin">账号登录</a>
         </div>
         <div class="contentList" style="text-align: center;border: dotted;margin: auto">
 
-                <p>如需要获取账号请与我们店长联系：</p>
+                <p>如需要获取账号请与我们联系：</p>
                 <p style="color: red;font-size: 18px;margin-top: 15px">电话:${sessionScope.shopMsg.tel}</p>
                 <p style="color: red;font-size: 18px">微信:${sessionScope.shopMsg.wx}</p>
-                <p style="color: red;font-size: 18px">手机:${sessionScope.shopMsg.whatsapp}</p>
+                <p style="color: red;font-size: 18px">手机/WhatsApp:${sessionScope.shopMsg.whatsapp}</p>
 
         </div>
     </div>

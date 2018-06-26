@@ -55,7 +55,9 @@ public class ProductController {
 
         Page page = new Page(index);
 
-        List<SproductEntity> productsByDsql = productService.findProductsByDsql(page, condition);
+        String sql = handleSql(condition);
+
+        List<SproductEntity> productsByDsql = productService.findProductsByDsql(page, sql);
 
         session.setAttribute("page",page);
 
@@ -66,5 +68,23 @@ public class ProductController {
         Page page = (Page)session.getAttribute("page");
 
         return page;
+    }
+
+    //重复商品加group by 处理工具类
+    public static String  handleSql(String sql){
+        StringBuilder str = new StringBuilder(sql);
+
+        if(sql.contains("order")){
+           //把group by 加在order前
+
+           int index =  sql.indexOf("order");
+           str.insert(index," group by s.name ");
+
+           return str.toString();
+        }else{
+
+            str.append(" group by s.name ");
+            return str.toString();
+        }
     }
 }

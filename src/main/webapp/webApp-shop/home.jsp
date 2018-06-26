@@ -241,10 +241,10 @@
         </div>
         <div class="contentList" style="text-align: center;border: dotted;margin: auto">
 
-            <p>如需要获取账号请与我们店长联系：</p>
+            <p>如需要获取账号请与我们联系：</p>
             <p style="color: red;font-size: 18px;margin-top: 15px">电话:${sessionScope.shopMsg.tel}</p>
             <p style="color: red;font-size: 18px">微信:${sessionScope.shopMsg.wx}</p>
-            <p style="color: red;font-size: 18px">手机:${sessionScope.shopMsg.whatsapp}</p>
+            <p style="color: red;font-size: 18px">手机/WhatsApp:${sessionScope.shopMsg.whatsapp}</p>
 
         </div>
     </div>
