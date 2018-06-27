@@ -1,10 +1,8 @@
 loadRemoteData = function(adminId,adminName) {
-
     // 初始化检查购物车是否为空，否则恢复用户数据
 
     // 获取对应分类商品
-    var categoryId = $(this).attr('data-cateId');
-    var condition = "";
+    window.condition = "";
     if(adminName == "SuperAdmin"){
         condition = "where flag = 'Y'";
         getCateGoods(adminId,1, condition);
@@ -21,6 +19,7 @@ loadRemoteData = function(adminId,adminName) {
 
     // 点击分类切换对应商品
     $(".categary-left").on("touchend", "li", function () {
+        currentIndex = 1;
         if ($(this).index() != 0 && $(this).index() != 1) {
             $(this).addClass('active').siblings('li').removeClass('active');
             // 获取对应分类商品
@@ -153,14 +152,17 @@ loadRemoteData = function(adminId,adminName) {
      * @param  {[string]} data_cateId [商品分类ID]
      * @return {[type]}             [description]
      */
-    function getCateGoods(admin_id,index, condition) {
+    function getCateGoods(admin_id,index, condition,scrollLoad) {
         $.ajax({
             url: getHostName()+"/product/findProductsByDsql.do?index="+index+"&condition="+condition,
             type: 'GET',
             dataType: 'JSON',
             timeout: 10000,
             success: function (data) {
-                $("#product-info").empty();
+                if(!scrollLoad){
+                    $("#product-info").empty();
+                }
+
                 $.each(JSON.parse(data), function (index, el) {
                     var str = `<li data-goodsId=${el.id} onclick="booleanLogin2()">
                                     <div class="left-img">
@@ -184,6 +186,8 @@ loadRemoteData = function(adminId,adminName) {
             }
         })
     }
+
+    window.getCateGoods_w = getCateGoods;
 
     /**
      * 获取所有分类的商品

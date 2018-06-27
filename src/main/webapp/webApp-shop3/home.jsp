@@ -13,6 +13,8 @@
     <link rel="stylesheet" href="css/footer.css">
     <link rel="stylesheet" href="css/cate.css">
     <link rel="stylesheet" href="css/login-dialog.css">
+    <script src="${pageContext.request.contextPath}/chinaPage/js/jquery.min.js"></script>
+    <script>$.noConflict();</script>
     <script src="js/lib/zepto.min.js"></script>
     <script>
         //判断否显示价格
@@ -94,7 +96,7 @@
             <div id="btnSearch" class="btn btnSure m0">Search</div>
         </div>
     </div>
-    <div id="categary-left" class="categary-left">
+    <div id="categary-left" class="categary-left" style="position: relative">
         <ul>
             <!--            <li class=""><a href="javascript:;">热门推荐</a></li>
                             <li class="active"><a href="javascript:;">潮流女装</a></li>
@@ -103,8 +105,11 @@
                             <li class=""><a href="javascript:;">家用电器</a></li>
                             <li class=""><a href="javascript:;">电脑办公</a></li>-->
         </ul>
+        <div style="position:absolute;width:100%;bottom:80px;left:0;text-align:center;color:#d8505c;text-align: center">
+            total:<span id="shangpinshuliang"></span><br>products
+        </div>
     </div>
-    <div class="categary-right">
+    <div class="categary-right" id="scrolldiv">
         <div class="right-in">
             <ul id="product-info" class="product-info">
                 <!-- 					<li>
@@ -292,3 +297,36 @@
 </script>
 </body>
 </html>
+<script>
+    $(function () {
+        var nScrollHight = 0; //滚动距离总长(注意不是滚动条的长度)
+        var nScrollTop = 0;   //滚动到的当前位置
+        var nDivHight = $("#scrolldiv").height();
+
+        var maxIndex
+        //构建分页信息
+        jQuery.ajax({
+            url: "${pageContext.request.contextPath}/product/findPageMsg",
+            success: function (data) {
+                maxIndex = data.endPage;
+                jQuery("#shangpinshuliang").text(data.totalRows);
+
+                window.currentIndex = 1;
+
+                jQuery("#scrolldiv").scroll(function(){
+                    nScrollHight = jQuery(this)[0].scrollHeight;
+                    nScrollTop = jQuery(this)[0].scrollTop;
+                    if(nScrollTop + nDivHight >= nScrollHight){
+                        if(currentIndex + 1 > maxIndex){
+                            return;
+                        }
+                        currentIndex ++;
+                        console.log(currentIndex);
+                        getCateGoods_w("${sessionScope.adminMsg.id}",currentIndex,condition,true);
+                    }
+                });
+            }
+        })
+    })
+
+</script>
