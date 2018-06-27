@@ -44,7 +44,7 @@ $(function(){
 											                    <a href="#" class="info-txt"></a>
 											                    <div class="option">
 											                        <div class="pull-left">
-											                    		<p class="price">Commodity price：€ <b>${GoodsEle.sproductEntity.price}</b></p>
+											                    		<p class="price">Commodity price：€ <b>${parseFloat(GoodsEle.sproductEntity.price).toFixed(2)}</b></p>
 											                            <span class="num">Purchase quantity：<b>${GoodsEle.count}</b></span>
 											                        </div>
 											                    </div>
@@ -56,7 +56,7 @@ $(function(){
 								});
 
 								var orderListFooterStr = `<div class="orderListFooter">
-												        	<div>Total<span class="totalNum">${totalNum}</span>Items totals： <span class="totalPrice" style="color:#d8505c">€ ${ele.sorderEntity.orderSalary}</span></div>
+												        	<div>Total<span class="totalNum">${totalNum}</span>Items totals： <span class="totalPrice" style="color:#d8505c">€ ${parseFloat(ele.sorderEntity.orderSalary).toFixed(2)}</span></div>
 												        </div>`;
 
 					        	$(".item .cart-shop-content").last().after(orderListFooterStr);

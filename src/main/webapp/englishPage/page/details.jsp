@@ -6,7 +6,6 @@
 		<title>Product-Lu-food</title>
 		<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/englishPage/css/common.css"/>
 		<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/englishPage/css/details-style.css"/>
-		<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/englishPage/css/index-style.css"/>
 		<script type="text/javascript" src="${pageContext.request.contextPath}/englishPage/js/jquery.min.js"></script>
 		<style>
 			img{
@@ -36,6 +35,7 @@
 					<input type="number" name="" id="count" value="1" style="text-align:center"/>
 					<input type="button" name="" id="" onclick="buyCart()" value="Buy now" />
 					<input type="button" name="" id="" onclick="addCart()"  value="Add to Car" />
+					<input type="button" name="" id="" onclick="gotoBuy()"  value="Continue to buy" />
 				</div>
 			</div>
 		</div>	
@@ -93,5 +93,9 @@
 				}
 			});
 		}
+
+        function gotoBuy(){
+            location.href = "${pageContext.request.contextPath}/englishPage/page/booklist.jsp?adminId=${sessionScope.adminMsg.id}";
+        }
 	</script>
 </html>

@@ -44,7 +44,7 @@ $(function(){
 											                    <a href="#" class="info-txt"></a>
 											                    <div class="option">
 											                        <div class="pull-left">
-											                    		<p class="price">商品单价：€ <b>${GoodsEle.sproductEntity.price}</b></p>
+											                    		<p class="price">商品单价：€ <b>${parseFloat(GoodsEle.sproductEntity.price).toFixed(2)}</b></p>
 											                            <span class="num">购买数量：<b>${GoodsEle.count}</b></span>
 											                        </div>
 											                    </div>
@@ -56,7 +56,7 @@ $(function(){
 								});
 
 								var orderListFooterStr = `<div class="orderListFooter">
-												        	<div>共<span class="totalNum">${totalNum}</span>件商品 合计： <span class="totalPrice" style="color:#d8505c">€ ${ele.sorderEntity.orderSalary}</span></div>
+												        	<div>共<span class="totalNum">${totalNum}</span>件商品 合计： <span class="totalPrice" style="color:#d8505c">€ ${parseFloat(ele.sorderEntity.orderSalary).toFixed(2)}</span></div>
 												        </div>`;
 
 					        	$(".item .cart-shop-content").last().after(orderListFooterStr);

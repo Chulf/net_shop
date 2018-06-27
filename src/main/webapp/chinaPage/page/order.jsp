@@ -80,7 +80,7 @@
                             + "<div class='fl commodity' style='margin-left:10px'>"
                             + "<p class='commodity_title'>" + o2.sproductEntity.name + "</p>"
                             + "<div class='commodity_info'  style='height:100px;overflow: hidden'>" + o2.sproductEntity.description + "</div>"
-                            + "</div> </td> <td>€" + o2.sproductEntity.price + "</td> <td>" + o2.count + "</td> <td>€" + o2.sproductEntity.price * o2.count + "</td> </tr>"
+                            + "</div> </td> <td>€" + parseFloat(o2.sproductEntity.price).toFixed(2) + "</td> <td>" + o2.count + "</td> <td>€" + parseFloat(o2.sproductEntity.price * o2.count).toFixed(2) + "</td> </tr>"
                 })
 
                 var end = "<tr><td colspan='4'>"
@@ -88,7 +88,7 @@
                         + "<div class='order_status fr'>"
                         + "订单状态：<span>" + o.sorderEntity.orderStatus + "</span>"
                         + "</div> <div class='order_price_total fr'>"
-                        + "订单总价：<span>€" + o.sorderEntity.orderSalary + "</span>"
+                        + "订单总价：<span>€" + parseFloat(o.sorderEntity.orderSalary).toFixed(2) + "</span>"
                         + "</div> </td> </tr> </table> </fieldset>";
 
                 content2 += legend + content + end;

@@ -36,6 +36,12 @@
 	border: 1px solid #ff7d7d;
 	padding:12px 8px 12px 38px; margin:0 6px; border-radius:8px; color:#ff7d7d; cursor:pointer; background-repeat:no-repeat; background-color:#fff0f0;
 }
+.count>input:nth-child(4){
+	font-size:16px;
+	background: #f7f7f7;
+	border: 1px solid #ff7d7d;
+	padding:10px 8px 10px 8px; margin:0 6px; border-radius:8px; color:#ff7d7d; cursor:pointer; background-repeat:no-repeat; background-color:#fff0f0;
+}
 .count>input:nth-child(2){ background-image:url(../img/buynow.png);background-size:32%; background-position:5px 4px;}
 .count>input:nth-child(2):hover{background-color:#ffc618; color:#fff; border:1px solid #FFF;background-image:url(../img/buynow_hover.png)}
 .count>input:nth-child(3){background-image:url(../img/buy_de.png);background-size:30%; background-position:5px 3px;}

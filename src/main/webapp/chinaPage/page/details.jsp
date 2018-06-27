@@ -6,7 +6,6 @@
 		<title>商品-福田食品</title>
 		<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/chinaPage/css/common.css"/>
 		<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/chinaPage/css/details-style.css"/>
-		<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/chinaPage/css/index-style.css"/>
 		<script type="text/javascript" src="${pageContext.request.contextPath}/chinaPage/js/jquery.min.js"></script>
 		<style>
 			img{
@@ -36,6 +35,7 @@
 					<input type="number" name="" id="count" value="1" style="text-align:center"/>
 					<input type="button" name="" id="" onclick="buyCart()" value="立即购买" />
 					<input type="button" name="" id="" onclick="addCart()"  value="加入购物车" />
+					<input type="button" name="" id="" onclick="gotoBuy()"  value="继续购买" />
 				</div>
 			</div>
 		</div>	
@@ -92,6 +92,10 @@
 					alert("添加成功！");
 				}
 			});
+		}
+
+		function gotoBuy(){
+		    location.href = "${pageContext.request.contextPath}/chinaPage/page/booklist.jsp?adminId=${sessionScope.adminMsg.id}";
 		}
 	</script>
 </html>

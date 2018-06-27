@@ -98,16 +98,16 @@
             success: function (data) {
                 $.each(data, function (index, o) {
                     if(${sessionScope.user != null}){
-                        content2 += "<div class='content fl' style='box-shadow:2px 6px 8px rgba(100,100,100,0.2), 3px 10px 20px rgba(200,200,200,0.2);' onclick='jumpToDetail(\"" + o.id + "\");'>"
+                        content2 += "<div class='content fl' title='"+ o.name +"  "+ o.description +"' style='box-shadow:2px 6px 8px rgba(100,100,100,0.2), 3px 10px 20px rgba(200,200,200,0.2);' onclick='jumpToDetail(\"" + o.id + "\");'>"
                             + "<img src='http://${pageContext.request.serverName}/net_shop_manager/" + o.imgsrc + "' width='150' height='150'/>"
-                            + "<p style='color:red;font-size:14px;max-width: 110px;overflow: hidden;text-overflow: ellipsis;white-space: nowrap;'>" + o.name + "</p>"
-                            + "<p style='color:#666;font-size:14px;max-width: 110px;overflow: hidden;text-overflow: ellipsis;white-space: nowrap;'>" + o.description + "</p>"
+                            + "<p style='color:red;font-size:14px;max-width: 148px;overflow: hidden;text-overflow: ellipsis;white-space: nowrap;'>" + o.name + "</p>"
+                            + "<p style='color:#666;font-size:14px;max-width: 148px;overflow: hidden;text-overflow: ellipsis;white-space: nowrap;'>" + o.description + "</p>"
                             + "</div>"
 
                     }else{
-                        content2 += "<div class='content fl' style='box-shadow:2px 6px 8px rgba(100,100,100,0.2), 3px 10px 20px rgba(200,200,200,0.2);' onclick='jumpToDetail(\"" + o.id + "\");'>"
+                        content2 += "<div class='content fl' title='"+ o.name +"' style='box-shadow:2px 6px 8px rgba(100,100,100,0.2), 3px 10px 20px rgba(200,200,200,0.2);' onclick='jumpToDetail(\"" + o.id + "\");'>"
                                 + "<img src='http://${pageContext.request.serverName}/net_shop_manager/" + o.imgsrc + "' width='150' height='150'/>"
-                                + "<p style='color:red;font-size:14px;max-width: 110px;overflow: hidden;text-overflow: ellipsis;white-space: nowrap;'>" + o.name + "</p>"
+                                + "<p style='color:red;font-size:14px;max-width: 148px;overflow: hidden;text-overflow: ellipsis;white-space: nowrap;'>" + o.name + "</p>"
                                 + "</div>"
                     }
                 })
