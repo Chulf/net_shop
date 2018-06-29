@@ -80,7 +80,7 @@
                             + "<div class='fl commodity' style='margin-left:10px'>"
                             + "<p class='commodity_title'>" + o2.sproductEntity.name + "</p>"
                             + "<div class='commodity_info'  style='height:100px;overflow: hidden'>" + o2.sproductEntity.description + "</div>"
-                            + "</div> </td> <td>€" + parseFloat(o2.sproductEntity.price).toFixed(2) + "</td> <td>" + o2.count + "</td> <td>€" + parseFloat(o2.sproductEntity.price).toFixed(2) * o2.count + "</td> </tr>"
+                            + "</div> </td> <td>€" + parseFloat(o2.sproductEntity.price).toFixed(2) + "</td> <td>" + o2.count + "</td> <td>€" + parseFloat(o2.sproductEntity.price * o2.count).toFixed(2) + "</td> </tr>"
                 })
 
                 var end = "<tr><td colspan='4'>"
